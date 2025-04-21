@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Movie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="main-content">
+    <h2>Edit Movie - ID {{ movie['id'] }}</h2>
+
+    <form action="{{ url_for('UPDATE_MOVIE', id=movie['id']) }}" method="POST" class="Movie-form">
+        <div class="form-group">
+            <label for="MOVIE_NAME">MOVIE NAME</label>
+            <input type="text" id="MOVIE_NAME" name="MOVIE_NAME" value="{{ movie['MOVIE_NAME'] }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="GENRE">GENRE</label>
+            <input type="text" id="GENRE" name="GENRE" value="{{ movie['GENRE'] }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="DIRECTORS_NAME">DIRECTORS NAME</label>
+            <input type="text" id="DIRECTORS_NAME" name="DIRECTORS_NAME" value="{{ movie['DIRECTORS_NAME'] }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="DATE_RELEASE">DATE RELEASE</label>
+            <input type="date" id="DATE_RELEASE" name="DATE_RELEASE" value="{{ movie['DATE_RELEASE'] }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="DATE_STARTED">DATE STARTED</label>
+            <input type="date" id="DATE_STARTED" name="DATE_STARTED" value="{{ movie['DATE_STARTED'] }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="MOVIE_BUDGET">MOVIE BUDGET</label>
+            <input type="text" id="MOVIE_BUDGET" name="MOVIE_BUDGET" value="{{ movie['MOVIE_BUDGET'] }}" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Update</button>
+        <a href="{{ url_for('homepage') }}">Cancel</a>
+    </form>
+</div>
+
+</body>
+</html>
